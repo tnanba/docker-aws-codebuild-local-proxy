@@ -34,6 +34,12 @@ sub main {
 		}
 	}
 
+	# Add volume "/var/run/docker.sock" to build service volumes.
+	# (to build docker image)
+	my $volumes = $yml->{services}->{build}->{volumes} || [];
+	push(@$volumes, '/var/run/docker.sock:/var/run/docker.sock');
+	$yml->{services}->{build}->{volumes} = $volumes;
+
 	print Dump($yml);
 }
 
