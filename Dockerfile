@@ -10,7 +10,7 @@ FROM perl:5.26 AS build
 
 COPY add_env_proxy.pl /root
 COPY --from=base /LocalBuild/agent-resources/docker-compose.yml /root/docker-compose.src.yml
-RUN cpanm YAML \
+RUN cpanm YAML::Tiny \
  && perl /root/add_env_proxy.pl < /root/docker-compose.src.yml > /root/docker-compose.yml
 
 #

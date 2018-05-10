@@ -1,7 +1,7 @@
 #!/bin/env perl
 use strict;
 use warnings;
-use YAML qw/Dump Load/;
+use YAML::Tiny;
 
 sub main {
 
